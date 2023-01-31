@@ -1,0 +1,9 @@
+{
+	"name": "Prod-Datafact-ad-1010",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bb7ecde5-2499-41a3-94c9-1e32dd8f50b9",
+		"tenantId": "8fdbfa5b-1219-4166-acf2-6f15c74dc85b"
+	}
+}
