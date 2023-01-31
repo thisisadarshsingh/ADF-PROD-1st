@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Prod-Datafact-ad-1010"
+		},
+		"Dataset1_Source_data_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Dataset1_Source_data'"
+		},
+		"LS_CSV_FILES_IN_CONTAINER_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_CSV_FILES_IN_CONTAINER'"
+		},
+		"LS_to_Dev_Conatiner_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_to_Dev_Conatiner'"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Prod-Datafact-ad-1010_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Dataset1_Source_data_connectionString": {
+						"value": "[parameters('Dataset1_Source_data_connectionString')]"
+					},
+					"LS_CSV_FILES_IN_CONTAINER_connectionString": {
+						"value": "[parameters('LS_CSV_FILES_IN_CONTAINER_connectionString')]"
+					},
+					"LS_to_Dev_Conatiner_connectionString": {
+						"value": "[parameters('LS_to_Dev_Conatiner_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
