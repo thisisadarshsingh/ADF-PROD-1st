@@ -62,7 +62,7 @@
 						}
 					},
 					{
-						"name": "Wait for 1 second",
+						"name": "Wait for another11111 properly seconds second",
 						"type": "Wait",
 						"dependsOn": [
 							{
@@ -83,7 +83,7 @@
 					"cancelAfter": {}
 				},
 				"annotations": [],
-				"lastPublishTime": "2023-01-31T11:06:59Z"
+				"lastPublishTime": "2023-02-01T09:12:42Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
@@ -202,6 +202,22 @@
 								}
 							]
 						}
+					},
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [
+							{
+								"activity": "ForEach1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
 					}
 				],
 				"policy": {
@@ -209,7 +225,7 @@
 					"cancelAfter": {}
 				},
 				"annotations": [],
-				"lastPublishTime": "2023-01-31T11:06:59Z"
+				"lastPublishTime": "2023-02-01T09:12:42Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Parquet1')]",
@@ -453,7 +469,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -469,7 +485,8 @@
 						"frequency": "Day",
 						"interval": 1,
 						"startTime": "2023-01-31T09:10:00Z",
-						"timeZone": "UTC"
+						"timeZone": "UTC",
+						"schedule": {}
 					}
 				}
 			},
@@ -556,6 +573,37 @@
 				"[concat(variables('factoryId'), '/datasets/DATSET_CSV_IN_CONTAINER')]",
 				"[concat(variables('factoryId'), '/datasets/DATASET_2_CSV_container')]",
 				"[concat(variables('factoryId'), '/datasets/DS_FILES')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger2')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Pipeline_to_Container_ADF",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2023-02-01T11:05:00Z",
+						"timeZone": "UTC",
+						"schedule": {}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Pipeline_to_Container_ADF')]"
 			]
 		}
 	]
