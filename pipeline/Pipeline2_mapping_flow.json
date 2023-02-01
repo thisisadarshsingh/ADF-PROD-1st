@@ -27,17 +27,11 @@
 				}
 			},
 			{
-				"name": "Wait for another ten seconds properly seconds second",
+				"name": "Wait for another11111 properly seconds second",
 				"type": "Wait",
 				"dependsOn": [
 					{
 						"activity": "Data flow1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
-					{
-						"activity": "Wait1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -47,19 +41,10 @@
 				"typeProperties": {
 					"waitTimeInSeconds": 1
 				}
-			},
-			{
-				"name": "Wait1",
-				"type": "Wait",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2023-02-01T09:07:15Z"
+		"lastPublishTime": "2023-02-01T09:12:42Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
