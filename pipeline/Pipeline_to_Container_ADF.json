@@ -106,10 +106,26 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2023-01-31T11:06:59Z"
+		"lastPublishTime": "2023-02-01T09:07:14Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
