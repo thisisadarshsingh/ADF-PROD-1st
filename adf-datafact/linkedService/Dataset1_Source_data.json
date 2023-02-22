@@ -1,0 +1,11 @@
+{
+	"name": "Dataset1_Source_data",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": ""
+		}
+	}
+}

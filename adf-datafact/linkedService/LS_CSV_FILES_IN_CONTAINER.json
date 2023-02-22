@@ -1,0 +1,11 @@
+{
+	"name": "LS_CSV_FILES_IN_CONTAINER",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": ""
+		}
+	}
+}
