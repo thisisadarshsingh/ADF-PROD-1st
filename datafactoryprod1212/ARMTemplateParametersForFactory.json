@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactoryprod1212"
+		},
+		"Dataset1_Source_data_connectionString": {
+			"value": ""
+		},
+		"LS_CSV_FILES_IN_CONTAINER_connectionString": {
+			"value": ""
+		},
+		"LS_to_Dev_Conatiner_connectionString": {
+			"value": ""
+		}
+	}
+}
